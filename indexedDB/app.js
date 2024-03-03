@@ -2,11 +2,11 @@
 const testLSLimit = new Array(5 * 1024 * 1024 + 1).join("a");
 
 // First you open a connection to a Database
-const open = indexedDB.open("Devmeets DB", 1);
+const open = indexedDB.open("DevmeetsDB", 1);
 open.onupgradeneeded = () => {
   // create the object store only when there is an upgrade
   const db = open.result;
-  db.createObjectStore("FirstUSerStore", { keyPath: "id" });
+  db.createObjectStore("MyUserStore", { keyPath: "id" });
 };
 
 open.onsuccess = () => {
@@ -21,7 +21,13 @@ which you can use to access your object store.
 references MDN WEB DOCS
     */
   const transaction = db.transaction("MyUserStore", "readwrite");
-  transaction.objectStore("MyUserStore");
+  const store = transaction.objectStore("MyUserStore");
+  // stores the item in the object store
+    // store.put({id:1, username: "Bilbo", age:20 });
+  const user = store.getAll();
+  user.onsuccess = () => {
+    console.log(user.result);
+  };
 };
 open.onerror = () => {
   console.log("ERROR");
