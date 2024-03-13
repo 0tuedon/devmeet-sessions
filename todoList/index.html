@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: "#000000",
+                            foreground: "#ffffff"
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript" src="./script.js"></script>
+    <title>Todo List - IndexedDB Example</title>
+</head>
+
+<body>
+    <!--
+// v0 by Vercel.
+// https://v0.dev/t/Tw6LZz6o3ed
+-->
+    <div class="rounded-lg border mx-auto max-w-md mt-20 bg-card text-card-foreground shadow-sm" data-v0-t="card">
+        <div class="flex flex-col space-y-1.5 p-6">
+            <h3 class="font-semibold whitespace-nowrap tracking-tight text-2xl">
+                Todo List
+            </h3>
+            <p class="text-sm text-muted-foreground">Manage your tasks</p>
+        </div>
+        <div class="p-6">
+            <div class="grid gap-4" id="todoList">
+
+            </div>
+        </div>
+        <div class="flex items-center p-6">
+            <div class="flex items-center gap-4 w-full">
+                <input type="text" id="todoInput"
+                    class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1 min-w-0"
+                    placeholder="Add a new task" /><button onclick="addTodo()"
+                    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
